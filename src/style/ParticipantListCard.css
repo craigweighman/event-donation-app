@@ -6,4 +6,42 @@
   width: 90vw;
   max-width: 1000px;
   margin: 0 auto 2vh auto;
+  padding: 2vh 2vw;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "image  owner  owner  owner  thermometer"
+    "image  raised  target  percentage  thermometer";
+}
+
+.ParticipantListCard:hover {
+  cursor: pointer;
+}
+
+.ParticipantListCard-image {
+  grid-area: image;
+  width: 25vh;
+  height: 25vh;
+}
+
+.ParticipantListCard-owner {
+  grid-area: owner;
+}
+
+.ParticipantListCard-raised {
+  grid-area: raised;
+}
+
+.ParticipantListCard-target {
+  grid-area: target;
+}
+
+.ParticipantListCard-percentage {
+  grid-area: percentage;
+}
+
+.ParticipantListCard-thermometer {
+  grid-area: thermometer;
 }

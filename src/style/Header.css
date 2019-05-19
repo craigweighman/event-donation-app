@@ -3,6 +3,8 @@
   box-shadow: 7.5px 0px 10px rgba(0, 0, 0, 0.1),
     -7.5px 0px 10px rgba(0, 0, 0, 0.1);
   height: 22vh;
+  position: relative;
+  z-index: 1;
 }
 
 .header-logo {

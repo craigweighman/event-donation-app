@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import ParticipantListCard from "../components/ParticipantListCard.js";
 import "../style/ParticipantList.css";
 
@@ -7,10 +8,12 @@ const ParticipantList = ({ participants }) => {
     <div className="ParticipantList">
       {participants.map(participant => {
         return (
-          <ParticipantListCard
+          <Link
+            to={`/participant/${participant.pageId}`}
             key={participant.pageId}
-            participant={participant}
-          />
+          >
+            <ParticipantListCard participant={participant} />
+          </Link>
         );
       })}
     </div>
