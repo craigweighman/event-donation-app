@@ -23,6 +23,20 @@ export const getParticipantsById = async participantId => {
   return participants;
 };
 
+export const getParticipantById = async participantId => {
+  const participant = await request.get(
+    `/${justGivingAPI}/v1/fundraising/pagebyid/${participantId}`
+  );
+  return participant;
+};
+
+export const getCharityById = async charityId => {
+  const charity = await request.get(
+    `/${justGivingAPI}/v1/charity/${charityId}`
+  );
+  return charity;
+};
+
 export const getRandomInteger = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import * as api from "../api/api.js";
 import ParticipantList from "../components/ParticipantList.js";
-import Donate from "../components/Donate.js";
+import Participant from "../components/Participant.js";
 import Charity from "../components/Charity.js";
 import "../style/Main.css";
 
@@ -21,11 +21,8 @@ class Main extends Component {
       <div className="Main">
         <Router>
           <ParticipantList path="/" participants={participants} />
-          <Donate
-            path="/participant/:participant_id"
-            participants={participants}
-          />
-          <Charity path="/charity/:charity_id" participants={participants} />
+          <Participant path="/participant/:participantId" />
+          <Charity path="/charity/:charityId" />
         </Router>
       </div>
     );

@@ -1,0 +1,9 @@
+.ParticipantListCard {
+  background-color: #ececec;
+  box-shadow: 7.5px 0px 10px rgba(0, 0, 0, 0.1),
+    -7.5px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 25vh;
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0 auto 2vh auto;
+}

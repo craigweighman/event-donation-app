@@ -1,13 +1,18 @@
 import React from "react";
-import Participant from "../components/Participant.js";
+import ParticipantListCard from "../components/ParticipantListCard.js";
 import "../style/ParticipantList.css";
 
-const ParticipantList = () => {
+const ParticipantList = ({ participants }) => {
   return (
     <div className="ParticipantList">
-      <Participant />
-      <Participant />
-      <Participant />
+      {participants.map(participant => {
+        return (
+          <ParticipantListCard
+            key={participant.pageId}
+            participant={participant}
+          />
+        );
+      })}
     </div>
   );
 };
