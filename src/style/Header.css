@@ -1,10 +1,11 @@
 .Header {
   background: linear-gradient(to left, #243488 0%, #cc0000 100%);
+  box-shadow: 7.5px 0px 10px rgba(0, 0, 0, 0.1),
+    -7.5px 0px 10px rgba(0, 0, 0, 0.1);
   height: 22vh;
-  margin: 0;
 }
 
 .header-logo {
   height: 14vh;
-  margin-top: 4vh;
+  margin-top: 4.5vh;
 }

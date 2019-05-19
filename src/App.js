@@ -1,17 +1,20 @@
 import React from "react";
 import Header from "./components/Header.js";
+import Scroll from "./components/Scroll.js";
 import Main from "./components/Main.js";
 import Footer from "./components/Footer.js";
 import "./style/App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Header />
-      <Main />
+      <Scroll>
+        <Main />
+      </Scroll>
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
