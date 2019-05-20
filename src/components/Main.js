@@ -15,7 +15,6 @@ class Main extends Component {
 
   render() {
     const { participants } = this.state;
-    console.log(participants);
 
     return (
       <div className="Main">

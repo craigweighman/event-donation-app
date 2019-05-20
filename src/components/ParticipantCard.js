@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "@reach/router";
 import Donate from "../components/Donate.js";
 import "../style/ParticipantCard.css";
 
 const ParticipantCard = ({ participant }) => {
-  console.log(participant.image);
   return (
     <div className="ParticipantCard">
       <img
@@ -11,13 +11,21 @@ const ParticipantCard = ({ participant }) => {
         alt={participant.owner}
         className="ParticipantCard-image"
       />
-      <div className="ParticipantCard-description">{participant.title}</div>
+      <div className="ParticipantCard-title">{participant.title}</div>
       <Donate />
-      <div className="ParticipantCard-thankyouMessage">{participant.title}</div>
-
-      <div className="ParticipantCard-registrationNumber">
-        {participant.owner}
+      <div className="ParticipantCard-story">
+        {participant.story.length <= 300
+          ? participant.story
+          : participant.story.slice(0, 300) + "..."}
       </div>
+      <div className="participating-for">I'm raising money for:</div>
+      <Link to={`/charity/${participant.charity.id}`}>
+        <img
+          src={participant.charity.logoAbsoluteUrl}
+          alt={participant.charity.name}
+          className="charity-logo"
+        />
+      </Link>
     </div>
   );
 };
