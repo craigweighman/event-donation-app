@@ -14,8 +14,12 @@ class Participant extends Component {
     const { participant } = this.state;
 
     return (
-      <div className="Participant">
-        <ParticipantCard participant={participant} />
+      <div>
+        {participant.owner && (
+          <div className="Participant">
+            <ParticipantCard participant={participant} />
+          </div>
+        )}
       </div>
     );
   }

@@ -1,0 +1,21 @@
+.DonateButton {
+  background: linear-gradient(to left, #243488 0%, #cc0000 100%);
+  box-shadow: 7.5px 0px 10px rgba(0, 0, 0, 0.1),
+    -7.5px 0px 10px rgba(0, 0, 0, 0.1);
+  grid-area: donate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 8vh;
+  width: 16vh;
+  margin: 0vh 2vw;
+  color: ivory;
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+.DonateButton:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 100ms ease-in;
+}

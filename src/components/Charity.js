@@ -14,8 +14,12 @@ class Charity extends Component {
     const { charity } = this.state;
 
     return (
-      <div className="Charity">
-        <CharityCard charity={charity} />
+      <div>
+        {charity.name && (
+          <div className="Charity">
+            <CharityCard charity={charity} />
+          </div>
+        )}
       </div>
     );
   }

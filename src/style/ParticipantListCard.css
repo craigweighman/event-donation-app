@@ -4,7 +4,7 @@
     -7.5px 0px 10px rgba(0, 0, 0, 0.1);
   height: 15vh;
   width: 90vw;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto 2vh auto;
   padding: 2vh 2vw;
   display: grid;
@@ -20,6 +20,8 @@
 }
 
 .ParticipantListCard-image {
+  box-shadow: 7.5px 0px 10px rgba(0, 0, 0, 0.1),
+    -7.5px 0px 10px rgba(0, 0, 0, 0.1);
   grid-area: image;
   display: flex;
   align-items: center;
