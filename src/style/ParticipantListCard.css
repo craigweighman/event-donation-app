@@ -2,18 +2,17 @@
   background-color: #ececec;
   box-shadow: 7.5px 0px 10px rgba(0, 0, 0, 0.1),
     -7.5px 0px 10px rgba(0, 0, 0, 0.1);
-  height: 25vh;
+  height: 15vh;
   width: 90vw;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto 2vh auto;
   padding: 2vh 2vw;
-
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 15vh 1fr 15vh;
+  grid-template-rows: 3fr 1fr;
   grid-template-areas:
-    "image  owner  owner  owner  thermometer"
-    "image  raised  target  percentage  thermometer";
+    "image  owner  chart"
+    "image  raised-stats  percentage";
 }
 
 .ParticipantListCard:hover {
@@ -22,26 +21,86 @@
 
 .ParticipantListCard-image {
   grid-area: image;
-  width: 25vh;
-  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15vh;
+  height: 15vh;
 }
 
 .ParticipantListCard-owner {
   grid-area: owner;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-transform: capitalize;
+  font-size: 4vh;
+  padding-left: 2vh;
 }
 
 .ParticipantListCard-raised {
-  grid-area: raised;
+  grid-area: raised-stats;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-left: 2vh;
 }
 
-.ParticipantListCard-target {
-  grid-area: target;
+.total-raised {
+  padding: 0 0.35vw 0 0;
+  font-size: 2vh;
+  font-weight: bold;
+  color: #243488;
+}
+
+.raised-of {
+  font-size: 2vh;
+}
+
+.target-number {
+  padding: 0 0.35vw;
+  font-size: 2vh;
+  font-weight: bold;
+  color: #cc0000;
+}
+
+.target {
+  font-size: 2vh;
+}
+
+.ParticipantListCard-chart {
+  grid-area: chart;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ParticipantListCard-percentage {
   grid-area: percentage;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-.ParticipantListCard-thermometer {
-  grid-area: thermometer;
+.percentage-raised-red {
+  padding: 0 0.15vw 0 0;
+  font-size: 2vh;
+  font-weight: bold;
+  color: #cc0000;
+}
+
+.percentage-raised-blue {
+  padding: 0 0.15vw 0 0;
+  font-size: 2vh;
+  font-weight: bold;
+  color: #243488;
+}
+
+.percent {
+  font-size: 2vh;
+}
+
+.chartjs-render-monitor {
+  height: 11vh !important;
+  width: 22vh !important;
 }

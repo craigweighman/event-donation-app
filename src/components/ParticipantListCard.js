@@ -1,9 +1,30 @@
 import React from "react";
-import Thermometer from "react-thermometer";
+import { Doughnut } from "react-chartjs-2";
 import logo from "../assets/android-chrome-192x192.png";
 import "../style/ParticipantListCard.css";
 
 const ParticipantListCard = ({ participant }) => {
+  const data = {
+    labels: ["RAISED", "TARGET"],
+
+    datasets: [
+      {
+        data: [
+          Math.floor(participant.totalRaisedPercentageOfFundraisingTarget) > 100
+            ? 100
+            : Math.floor(participant.totalRaisedPercentageOfFundraisingTarget),
+          Math.floor(participant.totalRaisedPercentageOfFundraisingTarget) > 100
+            ? 0
+            : 100 -
+              Math.floor(participant.totalRaisedPercentageOfFundraisingTarget)
+        ],
+        backgroundColor: ["#243488", "#cc0000"],
+        hoverBackgroundColor: ["#11297b	", "#bc0000"],
+        borderWidth: 0
+      }
+    ]
+  };
+
   return (
     <div className="ParticipantListCard">
       <img
@@ -17,32 +38,52 @@ const ParticipantListCard = ({ participant }) => {
       />
       <div className="ParticipantListCard-owner">{participant.owner}</div>
       <div className="ParticipantListCard-raised">
-        {Number(participant.totalRaisedOffline) +
-          Number(participant.totalRaisedOnline) +
-          Number(participant.totalRaisedSms)}
+        {
+          <span className="total-raised">
+            {participant.currencySymbol +
+              Math.floor(
+                Number(participant.totalRaisedOffline) +
+                  Number(participant.totalRaisedOnline) +
+                  Number(participant.totalRaisedSms)
+              )}
+          </span>
+        }
+
+        {<span className="raised-of">{"raised of"}</span>}
+        {
+          <span className="target-number">
+            {participant.currencySymbol +
+              Math.floor(participant.fundraisingTarget)}
+          </span>
+        }
+        {<span className="target">{"target"}</span>}
       </div>
 
-      <div className="ParticipantListCard-target">
-        {participant.fundraisingTarget}
-      </div>
-
-      <div className="ParticipantListCard-percentage">
-        {participant.totalRaisedPercentageOfFundraisingTarget}
-      </div>
-      <div className="ParticipantListCard-thermometer">
-        <Thermometer
-          min={0}
-          max={
-            participant.totalRaisedPercentageOfFundraisingTarget > 100
-              ? participant.totalRaisedPercentageOfFundraisingTarget
-              : 100
-          }
-          width={10}
-          height={175}
-          backgroundColor={"#dedede"}
-          fillColor={"#cc0000"}
-          current={participant.totalRaisedPercentageOfFundraisingTarget}
+      <div className="ParticipantListCard-chart">
+        <Doughnut
+          data={data}
+          options={{
+            cutoutPercentage: 30,
+            rotation: -0.5 * Math.PI,
+            legend: {
+              display: false
+            }
+          }}
         />
+      </div>
+      <div className="ParticipantListCard-percentage">
+        {
+          <span
+            className={
+              participant.totalRaisedPercentageOfFundraisingTarget < 100
+                ? "percentage-raised-red"
+                : "percentage-raised-blue"
+            }
+          >
+            {Math.floor(participant.totalRaisedPercentageOfFundraisingTarget)}
+          </span>
+        }
+        {<span className="percent">{"%"}</span>}
       </div>
     </div>
   );
