@@ -7,6 +7,12 @@
   z-index: 1;
 }
 
+.Header:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 100ms ease-in;
+}
+
 .header-logo {
   height: 14vh;
   margin-top: 4.5vh;
